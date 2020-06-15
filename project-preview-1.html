@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title> Project Preview - Zoho IDE</title>
+	<!-- FAV ICON -->
+	<link rel="icon" sizes="32x32" type="image/x-icon" href="../favicon2x.ico" />
+	<link rel="icon" sizes="16x16" type="image/x-icon" href="../favicon.ico" />
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
+	<!-- ZMENU CSS -->
+	<link href="../css/reset.css" type="text/css" rel="stylesheet" />
+	<link href="../css/typography.css" type="text/css" rel="stylesheet" />
+	<link href="../css/icons.css" type="text/css" rel="stylesheet" />
+	<link href="../css/modules/panel-comments.css" type="text/css" rel="stylesheet" />
+	<link href="../css/customComponents.css" type="text/css" rel="stylesheet" />
+	<!--<link href="css/ide-base.css" type="text/css" rel="stylesheet" />-->
+	
+<!-- ZCOMPONENTS CSS -->
+	<link href="../third-party/ui-components/dist/css/zohocomponents.css" rel="stylesheet" type
+	="text/css">
+	
+	<!-- Demo Purpose Style -->
+		<style>
+	  
+		.table-container {
+		 display: none;
+			width: 100%;
+			margin: 0px auto;
+			background: #FFF;
+			position: absolute;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+		}
+
+	
+</style>
+
+</head>
+
+<body>
+ <svg style="display:none">
+  	<symbol id="svg-usecase-icon" viewBox="0 0 16 16">
+  		<path d="M14.5,6H8V5a.46549.46549,0,0,0-.01-.04956,2.5,2.5,0,1,0-.98,0A.46549.46549,0,0,0,7,5V6H.5a.5.5,0,0,0,0,1H7v4.21777L3.14551,15.09766a.49994.49994,0,1,0,.709.70507L7.5,12.13281l3.64551,3.66992A.49588.49588,0,0,0,11.5,15.9502a.5.5,0,0,0,.35449-.85254L8,11.21777V7h6.5a.5.5,0,0,0,0-1ZM6,2.5A1.5,1.5,0,1,1,7.5,4,1.50164,1.50164,0,0,1,6,2.5Z">
+  		</path>
+	  </symbol>
+	  <symbol id="svg-close-icon" viewBox="0 0 14 14">
+		<polygon
+			points="13.6,1.6 12.4,0.4 7,5.8 1.6,0.4 0.4,1.6 5.8,7 0.4,12.4 1.6,13.6 7,8.2 12.4,13.6 13.6,12.4 8.2,7 ">
+		</polygon>
+	</symbol>	
+	  <symbol id="svg-folder-icon" viewBox="0 0 16 16">
+		<path d="M13.31543,14.93262H2.68457a2.58619,2.58619,0,0,1-2.583-2.583V3.65088a2.58588,2.58588,0,0,1,2.583-2.583H5.85889a1.40614,1.40614,0,0,1,.99511.416L8.32178,2.97168l4.99365.0293a2.5864,2.5864,0,0,1,2.584,2.583.65039.65039,0,0,1-1.30078,0,1.28439,1.28439,0,0,0-1.2832-1.2832H8.39062a1.40589,1.40589,0,0,1-.99462-.416L5.92822,2.397,2.68457,2.36768a1.2847,1.2847,0,0,0-1.2832,1.2832V6.8667H15.249a.65006.65006,0,0,1,.65039.6499v4.833A2.58672,2.58672,0,0,1,13.31543,14.93262ZM1.40137,8.1665v4.18311a1.28419,1.28419,0,0,0,1.2832,1.28223H13.31543a1.28387,1.28387,0,0,0,1.2832-1.28223V8.1665Z"></path>
+	</symbol>
+	  <symbol id="svg-file-icon" viewBox="0 0 16 16">
+		<path d="M12.32129,15.85352H3.67822a2.5739,2.5739,0,0,1-2.5708-2.57129V2.71777A2.57379,2.57379,0,0,1,3.67822.147H9.9209a.64962.64962,0,0,1,.46.19043l4.32129,4.32178a.65261.65261,0,0,1,.19043.45947v.47852a.65018.65018,0,0,1-.64942.6499L11.36133,6.249a2.57348,2.57348,0,0,1-2.5708-2.5708V1.44678H3.67822a1.27262,1.27262,0,0,0-1.271,1.271V13.28223a1.27188,1.27188,0,0,0,1.271,1.2705h8.64307a1.27116,1.27116,0,0,0,1.27051-1.2705V7.54883a.65039.65039,0,0,1,1.30078,0v5.7334A2.574,2.574,0,0,1,12.32129,15.85352ZM10.09082,1.88574V3.67822a1.27189,1.27189,0,0,0,1.27051,1.271l1.791-.001Z">
+		</path>
+		<path d="M11.36133,9.12988H4.62891a.6499.6499,0,1,1,0-1.2998h6.73242a.6499.6499,0,1,1,0,1.2998Z"></path>
+		<path d="M8.48,12.01172H4.62891a.65039.65039,0,0,1,0-1.30078H8.48a.65039.65039,0,0,1,0,1.30078Z"></path>
+	</symbol>
+	  <symbol id="svg-image-icon" viewBox="0 0 16 16">
+		<path d="M12,0H2A2,2,0,0,0,0,2V12a2,2,0,0,0,2,2H12a2,2,0,0,0,2-2V2A2,2,0,0,0,12,0ZM1.3,12V2A.7008.7008,0,0,1,2,1.3H12a.7008.7008,0,0,1,.7.7V9.76416L10.50781,7.583a2.08642,2.08642,0,0,0-1.48047-.61084H9.02051a2.08474,2.08474,0,0,0-1.4834.61963L2.46387,12.7H2A.7008.7008,0,0,1,1.3,12Zm10.7.7H4.29645L8.46,8.50781a.79033.79033,0,0,1,.56445-.23535.811.811,0,0,1,.56641.23242l3.0957,3.08106.01349.00885V12A.7008.7008,0,0,1,12,12.7Z"></path>
+		<path d="M4.65137,7.07471a2.12476,2.12476,0,1,0-2.125-2.125A2.12712,2.12712,0,0,0,4.65137,7.07471Zm0-2.94971a.825.825,0,1,1-.8252.82471A.82584.82584,0,0,1,4.65137,4.125Z"></path>
+	</symbol>
+	  <symbol id="svg-skipfolder-icon" viewBox="0 0 16 16">
+		<path d="M12.82031,2.8501H8.269L6.76562,1.34668A1.68226,1.68226,0,0,0,5.56738.8501H3.7002A3.65386,3.65386,0,0,0,.05029,4.5v8.32031A3.15363,3.15363,0,0,0,3.2002,15.9707h9.62011a3.15373,3.15373,0,0,0,3.15039-3.15039V6A3.15362,3.15362,0,0,0,12.82031,2.8501Zm1.84961,9.97021a1.85089,1.85089,0,0,1-1.84961,1.84961H3.2002a1.85163,1.85163,0,0,1-1.8501-1.84961V4.5A2.3527,2.3527,0,0,1,3.7002,2.1499H5.56738a.39228.39228,0,0,1,.2793.11572L7.54053,3.95947A.64848.64848,0,0,0,8,4.1499h4.82031A1.85163,1.85163,0,0,1,14.66992,6Z"></path>
+		<path d="M13.062,10H11.73737A4.43528,4.43528,0,0,0,7.1001,5.96143a4.42644,4.42644,0,0,0-4.6499,4.1499V11.5a.6499.6499,0,1,0,1.2998,0V10.11133a3.13441,3.13441,0,0,1,3.3501-2.8501A3.14988,3.14988,0,0,1,10.436,10H9.07477a.47378.47378,0,0,0-.33881.805l2.00916,2.0553a.46027.46027,0,0,0,.65942,0l2.00012-2.046A.47925.47925,0,0,0,13.062,10Z"></path>
+	</symbol>
+	  <symbol id="svg-skipfile-icon" viewBox="0 0 16 16">
+		<path d="M12.82031,2.8501H8.269L6.76562,1.34668A1.68226,1.68226,0,0,0,5.56738.8501H3.7002A3.65386,3.65386,0,0,0,.05029,4.5v8.32031A3.15363,3.15363,0,0,0,3.2002,15.9707h9.62011a3.15373,3.15373,0,0,0,3.15039-3.15039V6A3.15362,3.15362,0,0,0,12.82031,2.8501Zm1.84961,9.97021a1.85089,1.85089,0,0,1-1.84961,1.84961H3.2002a1.85163,1.85163,0,0,1-1.8501-1.84961V4.5A2.3527,2.3527,0,0,1,3.7002,2.1499H5.56738a.39228.39228,0,0,1,.2793.11572L7.54053,3.95947A.64848.64848,0,0,0,8,4.1499h4.82031A1.85163,1.85163,0,0,1,14.66992,6Z"></path>
+		<path d="M13.062,10H11.73737A4.43528,4.43528,0,0,0,7.1001,5.96143a4.42644,4.42644,0,0,0-4.6499,4.1499V11.5a.6499.6499,0,1,0,1.2998,0V10.11133a3.13441,3.13441,0,0,1,3.3501-2.8501A3.14988,3.14988,0,0,1,10.436,10H9.07477a.47378.47378,0,0,0-.33881.805l2.00916,2.0553a.46027.46027,0,0,0,.65942,0l2.00012-2.046A.47925.47925,0,0,0,13.062,10Z"></path>
+	</symbol>
+ </svg>
+
+ <button id="usecaseList" class="zc-btn icon active" style="position:absolute; top: 8px; right: 2px; z-index: 99" title="Cases">
+		<i class="icon">
+			<svg class="zc-black">
+				<use xlink:href="#svg-usecase-icon"> </use>
+			</svg>
+		</i>
+	</button>
+
+	<div id="zc-previewErrorList" class="container">
+	 
+ 	<div id="zc-previewSuccess" class="zc-prevLoading" style="display: none;">
+		 <div class="zc-cmtLoader zc-prevLoader">
+		  <span class="zc-loader grey-loader zc-large"></span>
+		  <!--<span class="zc-cmtLoadingText">Loading</span>-->
+		 </div>
+		</div>
+
+	 <div id="zc-serverNotRunning" class="zc-prevLoading" style="display: none;">
+	  <div class="zc-empty-state">
+			<div class="zc-empty-image empty-prevError"></div>
+			<div class="zc-empty-content">
+				<h2>The project is not running.</h2>
+				<p>To preview the project, please run the project and then click Preview again or reload this page.</p>
+			</div>
+		</div>
+		</div>
+		
+		<!--<div id="zc-urlMapping" class="zc-empty-state" style="display: none;">-->
+		<!-- <div class="zc-cmtLoader zc-prevLoader">-->
+		<!--  <span class="zc-loader grey-loader"></span>-->
+		<!--  <span class="zc-cmtLoadingText">New preview URL is mapping...</span>-->
+		<!-- </div>-->
+		<!--</div>-->
+		
+	 <!--<div id="zc-urlMapping2" class="zc-empty-state" style="display: none;">-->
+	
+		<!--	<div class="zc-empty-image empty-prevError"></div>-->
+		<!--	<div class="zc-empty-content">-->
+		<!--		<h2>New preview URL is getting mapped with your project.</h2>-->
+		<!--		<p>We are mapping the new preview URL with your project. Please wait for a few seconds or access later.</p>-->
+		<!--	</div>-->
+		<!--</div>-->
+		
+		<div id="zc-urlMapping3" class="zc-prevLoading" style="display: none;">
+		 <div class="zc-cmtLoader zc-prevLoader">
+		  <span class="zc-loader grey-loader zc-large"></span>
+		  <span class="zc-cmtLoadingText"></span>
+		 </div>
+		</div>
+		
+		<div id="zc-projectExtended" class="zc-prevLoading" style="display: none;">
+		 <div class="zc-cmtLoader zc-prevLoader">
+		  <span class="zc-loader grey-loader zc-large"></span>
+		  <span class="zc-cmtLoadingText"></span>
+		 </div>
+		</div>
+		
+		<div id="zc-previewError" class="zc-prevLoading" style="display: none;">
+		   <div class="zc-empty-state">
+    			<div class="zc-empty-image empty-urlError"></div>
+    			<div class="zc-empty-content">
+    				<h2>The URL does not exist.</h2>
+    				<p>Sorry! There is no such URL. It might be incorrect or changed.</p>
+    			</div>
+		   </div>
+	</div>
+	
+		<!-- Email Templates  -->
+		<center class="table-container">
+						<table class="zc-baseWrapper" width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#dbe6e6" style="background: #dbe6e6;">
+							<tbody>
+								<tr>
+									<td align="center" valign="top">
+										<!-- Header -->
+										<table class="zc-mailHeader" width="640px" border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px; display: table; width: 80%; max-width: 640px;">
+											<tbody>
+												<tr>
+													<td align="center" valign="top">
+														<table cellpadding="0" cellspacing="0" border="0" bgcolor="#00b7c8" class="zc-mailBanner" style="font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;; width: 100%; height: 100px; background: linear-gradient(to right, rgb(0, 183, 200) 20%, rgb(0, 198, 160) 100%); border-top-left-radius: 5px; border-top-right-radius: 5px;">
+															<!--[if gte mso 1]>
+																<v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="mso-width-percent:1000" fillcolor="#00b7c8">
+																<v:fill type="gradient" color2="#00c6a0"/>
+																<v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+																<center>
+																<![endif]-->
+															<tbody>
+																<tr>
+																	<td align="center">
+																			<table width="600" cellpadding="0" cellspacing="0" border="0" class="zc-mailContainer" style="width:100%; max-width: 600px; margin-top: 20px">
+																			<tbody><tr>
+																				<td>
+																					<h1 class="zc-primaryInfo" style="font-size: 22px; margin-top: 0px; margin-bottom: 0px; padding-left: 23px; padding-right: 20px; font-weight: normal; color: rgb(255, 255, 255); font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">Development In-progress</h1>
+																				</td>
+																				<td align="right" style="width: 64px; padding-right: 10px; text-align: right;">
+																					<img src="http://zohocodeplus/email/images-2/repo/status-inprogress-2x.png" alt="Development In-progress" class="zc-primaryImg" style="font-size: 13px; width: 64px; height: 64px; min-width: 64px; max-width: 64px; max-height: 64px; vertical-align: middle; word-break: break-word;">
+																				</td>
+																			</tr>
+																		</tbody></table>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+
+										<!-- Body Content-->
+										<table class="zc-mailBody" width="640px" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="margin-top: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; width: 80%; max-width: 640px;">
+											<tbody><tr>
+												<td align="center" valign="top" style="padding-top: 35px; padding-bottom: 35px">
+													<!-- Email Container -->
+													<table width="600" cellpadding="0" cellspacing="0" border="0" class="zc-mailContainer" style="width:100%; max-width: 600px; background: #fff">
+
+														<tbody><tr>
+															<td>
+																<table width="100%" cellpadding="0" cellspacing="0" border="0" class="zc-mailWrapper" style="table-layout: fixed; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;; width: 100%; max-width: 100%; margin: auto; padding-top: 0px; padding-bottom: 0px; background: rgb(255, 255, 255);">
+																	<tbody><tr>
+																		<td id="zc-emailTemplatePlaceholder" align="center"><tr>
+	<td class="zc-msgGroup" style="padding: 0px 20px 30px;">
+		<!-- General Message which is sent by System -->
+		<table class="zc-mailWrapper" align="center" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;; width: 100%; max-width: 100%; margin: auto; padding-top: 0px; padding-bottom: 0px; background: rgb(255, 255, 255);">
+			<tbody><tr>
+				<td align="left">
+					<p class="zc-salutation" style="margin-top: 0px; margin-bottom: 16px; font-size: 14px; line-height: 1.4; color: rgb(17, 17, 17); font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">Hi James Anderson,</p>
+					<p class="zc-primaryMessage zc-systemAddMsg" style="margin-top: 0px; margin-bottom: 0px; font-size: 14px; line-height: 1.4; color: rgb(17, 17, 17); font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">Manojkumar Viswanathan has changed the Development Status of the below merge request as In-progress. You cannot approve now, but you can review the code and add comments.</p>
+				</td>
+			</tr>
+		</tbody></table>
+	</td>
+</tr>
+
+<!-- Merge Detail List-->
+<tr>
+		<td class="zc-tableGroup" style="padding: 0px 20px 30px;">
+			<table class="zc-mailWrapper" align="center" cellpadding="0" cellspacing="0" border="0" style="border-radius: 5px; border-collapse: separate; border: 1px solid rgb(202, 220, 222); table-layout: fixed; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;; width: 100%; max-width: 100%; margin: auto; padding-top: 0px; padding-bottom: 0px; background: rgb(255, 255, 255);">
+				<tbody>
+						<tr>
+								<td class="zc-globalFontFamily" align="left" style="width: 35%; padding: 10px 15px; background: rgb(237, 246, 247); font-size: 14px; font-weight: normal; text-align: left; border-right: 1px solid rgb(202, 220, 222); border-radius: 5px 0px 0px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">
+									Merge Request Title
+								</td>
+								<td class="zc-globalFontFamily" align="left" style="width: 65%; padding: 10px 15px; background: rgb(255, 255, 255); font-size: 14px; font-weight: normal; text-align: left; border-radius: 0px 5px 0px 0px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">
+									Repository UI Update
+								</td>
+							</tr>
+					<tr>
+						<td class="zc-globalFontFamily" align="left" style="width: 35%; padding: 10px 15px; background: rgb(237, 246, 247); font-size: 14px; font-weight: normal; text-align: left; border-right: 1px solid rgb(202, 220, 222); border-top: 1px solid rgb(202, 220, 222); border-radius: 0px 0px 0px 5px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">
+							Source Branch
+						</td>
+						<td class="zc-globalFontFamily" align="left" style="width: 65%; padding: 10px 15px; background: rgb(255, 255, 255); font-size: 14px; font-weight: normal; text-align: left; border-top: 1px solid rgb(202, 220, 222); border-radius: 0px 0px 5px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">
+							<a class="zc-link" href="javascript:void(0);" style="color: rgb(11, 143, 233); text-decoration: none; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">Repository_Update</a>
+						</td>
+					</tr>	
+					<tr>
+						<td class="zc-globalFontFamily" align="left" style="width: 35%; padding: 10px 15px; background: rgb(237, 246, 247); font-size: 14px; font-weight: normal; text-align: left; border-right: 1px solid rgb(202, 220, 222); border-top: 1px solid rgb(202, 220, 222); border-radius: 0px 0px 0px 5px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">
+							Target Branch
+						</td>
+						<td class="zc-globalFontFamily" align="left" style="width: 65%; padding: 10px 15px; background: rgb(255, 255, 255); font-size: 14px; font-weight: normal; text-align: left; border-top: 1px solid rgb(202, 220, 222); border-radius: 0px 0px 5px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">
+							<a class="zc-link" href="javascript:void(0);" style="color: rgb(11, 143, 233); text-decoration: none; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">Master</a>
+						</td>
+					</tr>
+					<tr>
+							<td class="zc-globalFontFamily" align="left" style="width: 35%; padding: 10px 15px; background: rgb(237, 246, 247); font-size: 14px; font-weight: normal; text-align: left; border-right: 1px solid rgb(202, 220, 222); border-top: 1px solid rgb(202, 220, 222); border-radius: 0px 0px 0px 5px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">
+								Development Status 
+							</td>
+							<td class="zc-globalFontFamily" align="left" style="width: 65%; padding: 10px 15px; background: rgb(255, 255, 255); font-size: 14px; font-weight: normal; text-align: left; border-top: 1px solid rgb(202, 220, 222); border-radius: 0px 0px 5px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">
+								In-progress
+							</td>
+						</tr>
+						<tr>
+								<td class="zc-globalFontFamily" align="left" style="width: 35%; padding: 10px 15px; background: rgb(237, 246, 247); font-size: 14px; font-weight: normal; text-align: left; border-right: 1px solid rgb(202, 220, 222); border-top: 1px solid rgb(202, 220, 222); border-radius: 0px 0px 0px 5px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">
+									Description
+								</td>
+								<td class="zc-globalFontFamily" align="left" style="width: 65%; padding: 10px 15px; background: rgb(255, 255, 255); font-size: 14px; font-weight: normal; text-align: left; border-top: 1px solid rgb(202, 220, 222); border-radius: 0px 0px 5px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">
+									<p class="zc-descInTable" style="font-size: 14px; line-height: 1.5; margin-top: 0px; margin-bottom: 0px; color: rgb(17, 17, 17); font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">A little template for building a Spring GraphQL back-end that supports user-registration or login and user-sessions.</p>
+								</td>
+							</tr>
+				</tbody>
+			</table>
+	
+		</td>
+	</tr>
+	
+<!-- Action Buttons -->
+<tr>
+	<td class="zc-btnGroup" style="padding: 10px 20px;">
+		<table class="zc-mailWrapper" align="center" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;; width: 100%; max-width: 100%; margin: auto; padding-top: 0px; padding-bottom: 0px; background: rgb(255, 255, 255);">
+			<tbody>
+				<tr>
+					<td align="center">
+						<!-- Action Button -->
+						<table height="40" cellpadding="0" cellspacing="0" border="0" bgcolor="#09afb4" style="border-radius:50px;">
+							<tbody>
+								<tr>
+									<td align="center" valign="middle" height="40">
+										<a href="javascript:void(0);" class="zc-primaryActionOnly" target="" style="background-color: rgb(9, 175, 180); border-width: 1px; border-style: solid; border-color: rgb(9, 175, 180); color: rgb(255, 255, 255); border-radius: 50px; font-size: 14px; display: inline-block; text-decoration: none; line-height: 38px; padding-left: 30px; padding-right: 30px; min-width: 150px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">View Request</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</td>
+</tr>
+
+
+
+</td>
+																	</tr>
+
+																</tbody></table>
+															</td>
+														</tr>
+
+
+
+														<!-- Email Marketing  Container -->
+														<tr id="zc-marketingContentContainer" style="display: table-row;">
+															<td align="center" style="padding: 30px 20px 5px; background: rgb(255, 255, 255);">
+																<table class="zc-mailWrapper" width="520" align="center" cellpadding="0" cellspacing="0" border="0" style="width: 100%; max-width: 100%; margin: auto; padding-top: 0px; padding-bottom: 0px; border-top: 1px solid rgb(202, 220, 222); table-layout: fixed; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;; background: rgb(255, 255, 255);">
+																	<tbody>
+																		<tr>
+																			<td>
+																				<!-- Notes Container -->
+																				<table class="zc-mailNotes zc-mailWrapper" width="520" align="center" cellpadding="0" cellspacing="0" border="0" style="width: 100%; max-width: 100%; margin: auto; padding-top: 0px; padding-bottom: 0px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;; table-layout: fixed; background: rgb(255, 255, 255);">
+																					<tbody>
+																						<tr>
+																							<td id="marketingContentPlaceholder" align="left" style="margin-top: 0px; margin-bottom: 0px; font-size: 14px; line-height: 1.4; color: rgb(17, 17, 17); padding-top: 35px; padding-bottom: 0px;"><p style="margin-top: 0px; margin-bottom: 0px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">Want to know more about Merge Requests in Zoho Repo? <a href="javascript:void(0);" target="" style="color: #3498db !important; text-decoration: none">Learn here</a></p></td>
+																						</tr>
+																					</tbody>
+																				</table>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td width="100%" height="auto" style="display: none;">
+																				<img id="zc-marketingImg" src="http://zohocodeplus/email-templates/images/marketing-content.gif" alt="Marketing Content" width="100%" height="auto" style="font-size: 13px; width: 100%; height: auto; vertical-align: middle;">
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</td>
+														</tr>
+
+													</tbody></table>
+												</td>
+											</tr>
+										</tbody></table>
+
+										<!-- Footer -->
+										<table class="zc-mailFooter" width="640px" border="0" cellpadding="0" cellspacing="0" bgcolor="#eff6f7" style="background: rgb(239, 246, 247); margin-bottom: 30px; border-radius: 0px 0px 5px 5px; width: 80%; max-width: 640px;">
+											<tbody>
+												<tr>
+													<td align="center" valign="top" style="padding-top: 40px; padding-bottom: 40px">
+														<table cellpadding="0" cellspacing="0" border="0" class="zc-mailFooterContainer" style="font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;; width: 100%; max-width: 560px; font-size: 13px;">
+															<tbody>
+																<tr>
+																	<td style="padding-left: 20px; padding-right: 20px; padding-top: 0; padding-bottom: 0">
+																	
+																				
+																									</td> </tr> <tr>
+																					<td align="center" style="padding-top: 20px; padding-right: 20px; padding-left: 20px; padding-bottom: 13px; color: #0b3b46; line-height: 1.6">
+																						<span id="zc-emailNotifyInfo" style="font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">This email has been sent to you from Zylker, Inc. via Zoho Repo. If you think it is spam, please notify us by sending an email to <a href="javascript:void(0);" target="" style="color: #0b8fe9 !important; text-decoration: none">abuse@zohocorp.com</a>.</span>
+																					</td>
+																				</tr>
+																				<tr>
+																					<td class="zc-copyRightText" align="center" style="color: rgb(11, 59, 70); line-height: 1.6; padding-right: 20px; padding-left: 20px; font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, Roboto, Arial, Verdana, Tahoma, &quot;Sans Serif&quot;;">
+																						© Zoho Corporation Pvt. Ltd. All
+																						Rights
+																						Reserved.
+																						<br>
+																						Zoho Corporation, 4141 Hacienda
+																						Drive,
+																						Pleasanton, CA 94588,
+																						USA.
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</td>
+												</tr>
+											</tbody>
+						</table>
+					</center>
+	
+	</div>
+	
+
+	<!-- POPOVER TEMPLATE -->
+	<div id="usecase-template" class="zc-usecaseList">
+		<div class="zc-useCaseHeader">
+			<div class="zc-caseTitle">Project Preview Cases</div>
+			<button id="closeUsecaseList" class="zc-btn zc-btn-small icon zc-usecaseCloseBtn" title="Close">
+				<i class="icon-12">
+					<svg class="zc-black">
+						<use xlink:href="#svg-close-icon"> </use>
+					</svg>
+				</i>
+			</button>
+		</div>
+		<div class="zc-usecases">
+			<ul class="zc-caseMenuList">
+			 	<li>
+					<a id="zc-previewSuccess-case" href="#" class="">
+						<span class="zc-caseText">Project preview success case.</span>
+					</a>
+				</li>
+				
+					<!-- <li>-->
+ 				<!--	<a id="zc-previewExtended-case" href="#" class="">-->
+ 				<!--		<span class="zc-caseText">Project was idle for an extended period.</span>-->
+ 				<!--	</a>-->
+ 				<!--</li>-->
+				
+			
+					<li>
+					<a id="zc-urlMapping3-case" href="#" class="">
+						<span class="zc-caseText">New URL getting mapped to project</span>
+					</a>
+				</li>
+			 
+				<li>
+					<a id="zc-serverNotRunning-case" href="#" class="">
+						<span class="zc-caseText">The project is not running.</span>
+					</a>
+				</li>
+
+				<li>
+					<a id="zc-previewError-case" href="#" class="">
+						<span class="zc-caseText">The URL does not exist.</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	
+
+	<!-- Include jQuery and jQuery UI -->
+	<script src="../third-party/ui-components/thirdparty/jquery-2.2.3.min.js"></script>
+	<script src="../third-party/jquery/jquery-ui.js"></script>
+
+	<!-- ZOHO COMPONENTS -->
+	<script src="../third-party/ui-components/dist/js/zohocomponents.js" type="text/javascript"></script>
+	<script src="../js/ide-popoverInit.js" type="text/javascript"></script>
+	<script src="../js/modules/app-notification.js" type="text/javascript"></script>
+	<script src="../js/ide-query.js" type="text/javascript"></script>
+	<script src="../js/project-preview.js" type="text/javascript"></script>
+	
+
+</body>
+
+</html>
